@@ -13,7 +13,7 @@ library(viridis)
 library(stringi)
 library(readr)
 
-capital3 <- read_csv("")
+capital3 <- read_csv("https://raw.githubusercontent.com/RomanKyrychenko/plots/master/capital2.csv")
 
 gg_path_3 = ggplot(capital3) +
   geom_path_interactive(aes(Дата, Капітал, group=Банк, data_id = Банк,
