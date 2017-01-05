@@ -1,6 +1,6 @@
 ---
 title: "Двосторонній барчарт"
-output: html_document
+output: html_notebook
 ---
 
 Підключимо необхідні бібліотеки
