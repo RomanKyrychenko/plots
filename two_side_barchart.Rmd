@@ -1,6 +1,8 @@
 ---
 title: "Двосторонній барчарт"
-output: html_notebook
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 Підключимо необхідні бібліотеки
