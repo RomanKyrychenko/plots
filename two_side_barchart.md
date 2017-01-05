@@ -49,8 +49,56 @@ DATA <- data_frame(
 
 Для створення такої графіки потрібно створити спочатку три окремі: два барчарти і легенду для них.
 
+``` r
+g.mid<-ggplot(DATA,aes(x=1,y=reorder(state, `Позитивна динаміка`)))+geom_text(aes(label=state))+
+  ggtitle("")+
+  ylab(NULL)+
+  theme(axis.title=element_blank(),
+        panel.grid=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        panel.background=element_blank(),
+        axis.text.x=element_text(color=NA),
+        axis.ticks.x=element_line(color=NA),
+        plot.margin = unit(c(1,-1,1,-1), "mm"))
+
+g1 <- ggplot(data = DATA, aes(x = reorder(state, `Позитивна динаміка`), y = `Негативна динаміка`)) +
+  geom_bar(stat = "identity",fill="#fdd49e") + ggtitle("Негативна динаміка") +
+  scale_y_continuous(limits=c(0,20))+
+  ylab("") +
+  xlab("") +
+  theme(axis.title.x = element_blank(), 
+        axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank(), 
+        plot.margin = unit(c(1,-1,1,0), "mm")) +
+  scale_y_reverse() + coord_flip() +
+  theme(axis.line = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank()) 
+```
+
     ## Scale for 'y' is already present. Adding another scale for 'y', which
     ## will replace the existing scale.
+
+``` r
+g2 <- ggplot(data = DATA, aes(x = reorder(state, `Позитивна динаміка`), y = `Позитивна динаміка`)) +xlab(NULL)+
+  geom_bar(stat = "identity",fill="#d9f0a3") + ggtitle("Позитивна динаміка") +
+  scale_y_continuous(limits=c(0,20))+
+  ylab("") +
+  xlab("") +
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank(), 
+        axis.text.y = element_blank(), axis.ticks.y = element_blank(),
+        plot.margin = unit(c(1,0,1,-1), "mm")) +
+  coord_flip()+
+  theme(axis.line = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        panel.background = element_blank())
+```
 
 Тепер елементі графіка склеюємо
 
