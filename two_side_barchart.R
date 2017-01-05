@@ -57,7 +57,6 @@ g2 <- ggplot(data = DATA, aes(x = reorder(state, `Позитивна динам�
         panel.border = element_blank(),
         panel.background = element_blank()) 
 
-
 gg1 <- ggplot_gtable(ggplot_build(g1))
 gg2 <- ggplot_gtable(ggplot_build(g2))
 gg.mid <- ggplot_gtable(ggplot_build(g.mid))
